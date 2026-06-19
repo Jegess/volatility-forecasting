@@ -1,0 +1,20 @@
+[project]
+name = "theta-pipeline"
+version = "0.1.0"
+requires-python = ">=3.11"
+dependencies = [
+    "httpx>=0.28",
+    "polars>=1.0",
+    "pydantic>=2.0",
+    "numpy>=2.0",
+    "lightgbm>=4.6",
+    "optuna>=4.0",
+    "shap>=0.50",
+    "torch>=2.6",
+    "yfinance>=0.2",
+]
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+testpaths = ["tests", "prediction/tests"]
+markers = ["slow: marks tests as slow (deselect with '-m \"not slow\"')"]

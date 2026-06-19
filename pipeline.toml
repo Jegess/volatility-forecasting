@@ -1,0 +1,92 @@
+# Theta Data Pipeline Configuration
+
+[symbols]
+universe = [
+    # Benchmarks / ETFs (5)
+    "SPY", "QQQ", "IWM", "GLD", "TLT",
+    # Mega-cap tech (7)
+    "AAPL", "MSFT", "NVDA", "GOOGL", "AMZN", "META", "TSLA",
+    # Financials (9)
+    "JPM", "V", "MA", "GS", "MS", "C", "BAC", "WFC", "SCHW", "AXP",
+    # Healthcare (10)
+    "UNH", "JNJ", "ABBV", "MRK", "LLY", "PFE", "BMY", "TMO",
+    "MRNA", "GILD", "AMGN", "ISRG", "REGN", "VRTX",
+    "CI", "MCK",
+    # Healthcare devices (3)
+    "SYK", "BSX", "DXCM",
+    # Consumer (12)
+    "HD", "PG", "COST", "WMT", "KO", "PEP", "MCD", "NKE", "SBUX",
+    "TGT", "CMG", "ABNB", "LULU", "MDLZ", "CL", "MNST",
+    # Industrials (9)
+    "CAT", "HON", "DE", "RTX", "LMT", "GE", "BA",
+    "FDX", "UPS", "WM", "ETN", "ADP",
+    # Tech / Software (12)
+    "ACN", "ADBE", "CRM", "NFLX", "ORCL", "NOW",
+    "CRWD", "PANW", "SHOP", "SNOW", "DDOG",
+    "ZS", "FTNT", "WDAY", "TEAM",
+    "DELL", "ZM", "PINS", "TWLO",
+    # Semiconductors (10)
+    "AVGO", "AMD", "INTC", "QCOM", "TXN",
+    "AMAT", "LRCX", "MU", "KLAC", "MRVL", "ON", "NXPI", "FSLR",
+    # Energy (7)
+    "XOM", "CVX", "SLB", "OXY", "NEE", "COP", "EOG", "MPC", "PSX",
+    # Telecom / Media (4)
+    "T", "VZ", "CMCSA", "DIS",
+    # Growth / Speculative (14)
+    "PLTR", "COIN", "UBER", "SQ", "XYZ", "NET", "SNAP", "ROKU",
+    "DASH", "SPOT", "HOOD", "SOFI", "AFRM", "RBLX", "TTD",
+    "MSTR", "ENPH", "PATH",
+    # Other (7)
+    "PYPL", "LOW", "CSCO", "IBM",
+    "MARA", "RIVN", "NIO", "BABA", "SMCI",
+    "BX", "KKR", "ALLY",
+    "GM", "F", "SE", "HPQ",
+    # --- New symbols (46) — large-caps filling sector gaps ---
+    # Healthcare (3)
+    "ABT", "DHR", "HCA",
+    # Insurance (4)
+    "AFL", "AIG", "MET", "TRV",
+    # Financials - diversified (5)
+    "BLK", "CME", "COF", "ICE", "SPGI",
+    # Insurance / P&C (2)
+    "CB", "PGR",
+    # Tech / EDA+Software (3)
+    "CDNS", "INTU", "SNPS",
+    # Industrials / Defense (4)
+    "GD", "NOC", "CSX", "UNP",
+    # Materials / Mining (3)
+    "FCX", "LIN", "NEM",
+    # Chemicals / Industrials (3)
+    "DOW", "NUE", "SHW",
+    # Consumer / Staples (2)
+    "MO", "PM",
+    # Healthcare devices / services (2)
+    "ELV", "MDT",
+    # REITs (5)
+    "AMT", "EQIX", "O", "PLD", "PSA", "SPG",
+    # Utilities (4)
+    "D", "DUK", "SO", "SRE",
+    # Telecom (1)
+    "TMUS",
+    # Transport (2)
+    "DAL", "UAL",
+    # Conglomerate (1)
+    "MMM",
+    # Networking (1)
+    "ANET",
+]
+
+# Ticker renames: map new ticker -> canonical symbol for concat in post-processing
+[symbols.renames]
+XYZ = "SQ"  # Block Inc. renamed SQ -> XYZ in Dec 2024
+
+[api]
+base_url = "http://127.0.0.1:25503/v3"
+concurrency = 4
+timeout_default = 60.0
+timeout_large = 300.0
+large_symbols = ["SPY", "QQQ", "IWM"]
+
+[dates]
+start_date = "2021-01-01"
+end_date = "2026-03-19"

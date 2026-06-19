@@ -1,0 +1,27 @@
+.planning/
+data/
+data_backup/
+__pycache__/
+*.pyc
+.pytest_cache/
+creds.txt
+config.toml
+ThetaTerminalv3.jar
+*.jar
+lib/
+terminal.bat
+.env
+.claude/
+
+# Private project files not for the public repo
+PROJECT_CONTEXT.md
+
+# Local working folders
+dolgozat/
+dissertation/
+*.xlsx
+
+# Unrelated local folders
+GBM anyag/
+Factor Regression/
+deribit/
